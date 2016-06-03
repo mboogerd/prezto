@@ -44,6 +44,8 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
+  ~/scripts
+  /Library/PostgreSQL/9.2/bin
   $path
 )
 
@@ -72,3 +74,14 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+# GO
+export GOPATH="$HOME/workspace/go"
+
+# BUILD TOOLS
+export M2_HOME=
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"
+export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M  -Duser.timezone=GMT"
+
+
+
