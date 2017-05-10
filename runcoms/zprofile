@@ -5,6 +5,19 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Inject iTerm 2 shell integration
+source ~/.iterm2_shell_integration.`basename $SHELL`
+
+# Inject own script files
+for f in ~/scripts/lib/*.sh; do
+   . $f
+done
+
+# Inject private environment
+if [ -f ~/.private/environment ]; then
+  source ~/.private/environment
+fi
+
 #
 # Browser
 #
@@ -82,6 +95,4 @@ export GOPATH="$HOME/workspace/go"
 export M2_HOME=
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"
 export SBT_OPTS="-Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M  -Duser.timezone=GMT"
-
-
-
+export PATH=$PATH:~/scripts/
